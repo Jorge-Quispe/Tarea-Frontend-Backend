@@ -1,0 +1,51 @@
+
+    <div class="center">
+      <button mat-icon-button>    
+        <a mat-icon-button routerLink="/curso/add">
+          <mat-icon  class="add" color="accent">add_circle</mat-icon>
+        </a>
+      </button>
+    </div>
+    <nav class="center">
+    <table mat-table [dataSource]="cursos" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="ID_CURSO">
+        <th mat-header-cell *matHeaderCellDef> id </th>
+        <td mat-cell *matCellDef="let element"> {{element.ID_CURSO}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="NOMBRE">
+        <th mat-header-cell *matHeaderCellDef> curso </th>
+        <td mat-cell *matCellDef="let element"> {{element.NOMBRE}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="ESTADO">
+        <th mat-header-cell *matHeaderCellDef> estado </th>
+        <td mat-cell *matCellDef="let element"> {{element.ESTADO}} </td>
+      </ng-container>
+      <ng-container matColumnDef="EDITAR">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let element">
+          
+               <button mat-icon-button [routerLink] = "['/editcurso', element.ID_CURSO]">
+            <mat-icon color="primary">edit</mat-icon>
+          </button>
+          
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="ELIMINAR">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="delCurso(element.ID_CURSO)" mat-icon-button>
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="['ID_CURSO','NOMBRE', 'ESTADO' ,'EDITAR','ELIMINAR' ]"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['ID_CURSO','NOMBRE', 'ESTADO','EDITAR','ELIMINAR'];"></tr>
+    </table>
+    
+  </nav>

@@ -1,0 +1,25 @@
+<div class="center">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Registrar</mat-card-title>
+          <mat-card-subtitle>Curso</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Curso</mat-label>
+                <input matInput [(ngModel)]="cursoModel.nombre" placeholder="Ingresar Curso" name="nombre">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <section>
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary" (click)="create()">Primary</button>
+
+                </div>
+            </section>
+        </mat-card-content>
+      </mat-card>
+
+    <!---->
+</div>
